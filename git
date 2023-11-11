@@ -1,0 +1,39 @@
+# to initialize repository
+git init 
+# to clone repository
+git clone -b <branch-name> repo-URL 
+# config git 
+git config --username ARUNP
+git config --email arunprasanthp@yahoo.com
+
+# to add files to working copy for commit 
+git add <filename> ; git add . -- selects all the files in the staging directory 
+
+#COMMMIT files from staging 
+git commit -m "commit message"
+
+#TO CREATE NEW BRANCH in LOCAL 
+git branch -b <BRANCH_NAME> 
+git checkout -c <BRANCH_NAME>
+
+# to SWITCH BRANCH 
+git branch <BRANCH_NAME>
+git switch <BRANCH_NAME>
+
+# TO PUSH CODE FROM NEW BRANCH TO REMOTE 
+git push origin <BRANCH_NAME>
+
+# TO UNSTAGE FILES FROM STAGED 
+git restore --staged <FILENAMES>
+
+# to revoke already committed change 
+git reset HEAD`1
+# HARD WAY 
+git reset --- hard HEAD~2
+# can also be achieved using the hash code 
+git reset --hard 10b54asd2
+
+# to pull the changes from remote 
+git pull origin <BRANCH_NAME> 
+
+
