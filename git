@@ -6,6 +6,9 @@ git clone -b <branch-name> repo-URL
 git config --username ARUNP
 git config --email arunprasanthp@yahoo.com
 
+# to get current status 
+git status
+
 # to add files to working copy for commit 
 git add <filename> ; git add . -- selects all the files in the staging directory 
 
