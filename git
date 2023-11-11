@@ -39,4 +39,38 @@ git reset --hard 10b54asd2
 # to pull the changes from remote 
 git pull origin <BRANCH_NAME> 
 
+# REBASE AND MERGE are same but REBASE is linear way of merging b/w multiple branches 
+Rebasing is a process of combining a seq of commits to a new base commits -- to maintain linear project history.
+SCENARIO: 
+say master branch has 2 commits --> created new branch and made 4 more commits 
+MASTER branch later got 3 more commits --> IN order to merge new branch with master 
+In LOCAL, 
+NORMAL MERGE 
+git checkout master (switches to the master branch) 
+git pull (updates remote code) 
+git checkout newbranch
+git merge master 
+
+WITH REBASE 
+git checkout master (switches to the master branch) 
+git pull (updates remote code) 
+git checkout newbranch
+git rebase master -f  -- force mode (since it has to detach head)
+git push 
+
+# SQUASH COMMITS - combine two or more commits to single commits
+git rebase -i HEAD~2 (how much commits has to be combined) -- SQUASH has to be done on interactive mode only 
+to edit interactive mode press "i"
+select which commits to PICK, SQUASH and enter ":wq"
+additionally you can enter commit message as well 
+
+# EDIT LAST COMMIT MESSAGE 
+git commit --amend -m "EDITED MSG"
+
+# CHANGES COMMITED on a commit 
+git show <COMMITHASHCODE>
+
+
+
+
 
