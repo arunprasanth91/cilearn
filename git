@@ -70,6 +70,13 @@ git commit --amend -m "EDITED MSG"
 # CHANGES COMMITED on a commit 
 git show <COMMITHASHCODE>
 
+# COPY PARTICULAR COMMIT FROM ONE BRANCH TO ANOTHER 
+git cherry-pick <COMMIT-HASH-CODE>
+if there are conflicts resolve and git cherry-pick --continue
+opens editor mode -> press "i" to update commit message and save ":wq"
+
+
+
 
 
 
