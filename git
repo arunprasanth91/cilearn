@@ -14,6 +14,7 @@ git add <filename> ; git add . -- selects all the files in the staging directory
 
 #COMMMIT files from staging 
 git commit -m "commit message"
+ 
 
 #TO CREATE NEW BRANCH in LOCAL 
 git branch -b <BRANCH_NAME> 
@@ -91,6 +92,9 @@ git stash pop HEAD`1 -> this will delete from stash history as well.
 to check the file diff b/w working directory to staging directory 
 git diff <FILE>
 git blame <FILE> -- shows the history of changes done on the file. 
+
+# TO REVERT A COMMITED CHANGES FROM REPO
+git revert <COMMIT-HASHCODE> -- new entty will be created in the log that it is reverted. 
 
 
 
