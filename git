@@ -88,6 +88,12 @@ git stash save "some ref"
 git stash apply HEAD~1 -> it will preserve history 
 git stash pop HEAD`1 -> this will delete from stash history as well. 
 
+to check the file diff b/w working directory to staging directory 
+git diff <FILE>
+git blame <FILE> -- shows the history of changes done on the file. 
+
+
+
 
 
 
