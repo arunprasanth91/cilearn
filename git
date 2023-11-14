@@ -75,6 +75,21 @@ git cherry-pick <COMMIT-HASH-CODE>
 if there are conflicts resolve and git cherry-pick --continue
 opens editor mode -> press "i" to update commit message and save ":wq"
 
+# CHECK FAULTY COMMITS
+1. git bisect start
+2. git bisect bad <COMMIT-HASHCODE>
+3. git bisect good <COMMIT-HASHCODE>
+4. git bisect bad/good -> to report if the random head is good or bad 
+5. git reset
+
+# to temp save changes from working directory 
+git stash save "some ref"
+# to apply changes to workimg directory
+git stash apply HEAD~1 -> it will preserve history 
+git stash pop HEAD`1 -> this will delete from stash history as well. 
+
+
+
 
 
 
