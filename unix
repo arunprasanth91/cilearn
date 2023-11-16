@@ -1,1 +1,9 @@
-
+ls - list files in dir
+cd - chnage dir 
+cd / - root dir 
+vi <FILENAME> - creates file in vi mode (most used)
+i - for interactive mode ; :w to save 
+pwd - currnet dir 
+date - prints current date time 
+ls -l -- long listing 
+ls -a -- list hidden and unhidden files 
