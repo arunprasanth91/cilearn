@@ -7,3 +7,6 @@ pwd - currnet dir
 date - prints current date time 
 ls -l -- long listing 
 ls -a -- list hidden and unhidden files 
+cp filename dir/copyfilename - copy files
+cp -R dir copydir - copy dir 
+
