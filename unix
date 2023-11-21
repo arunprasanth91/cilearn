@@ -9,4 +9,5 @@ ls -l -- long listing
 ls -a -- list hidden and unhidden files 
 cp filename dir/copyfilename - copy files
 cp -R dir copydir - copy dir 
-
+man ls - returns manual for the ls 
+man -k -s 1 print - returns instructions related to print
