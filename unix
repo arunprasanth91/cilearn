@@ -11,3 +11,15 @@ cp filename dir/copyfilename - copy files
 cp -R dir copydir - copy dir 
 man ls - returns manual for the ls 
 man -k -s 1 print - returns instructions related to print
+whatis ls - another way of finding instruction about a command 
+whereis ls - return where the command is located. 
+clear - to clear screen 
+echo  "print something to screen"
+echo  "print something to screen" >> file1 - appends text to the file. 
+cat file1 - concatentates file content and prints 
+cat file1 file2 - concatenates content of 2 files and prints 
+cat -n file1 file2  - prints with line numbers 
+more, less file1 - to print content; less is the most sophisticated way doesn't breaks and can navigate easily 
+date -u - returns date time -u denotes timestammp
+df -h -- returns disk space -h returns in human readable form
+du -h -- returns disk utlization in human readable form 
