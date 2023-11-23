@@ -1,3 +1,4 @@
+********************** BASIC UNIX COMMANDS *****************************
 ls - list files in dir
 cd - chnage dir 
 cd / - root dir 
@@ -26,22 +27,35 @@ du -h -- returns disk utlization in human readable form
 chage -l <username> - know when user password will expire. 
 
 **************** WORKING WITH SHELL *******************
-# VARIABLES 
+#****************  WORKING WITH VARIABLES ********************
 var = "AURN PRAANTH"
 echo $var
 by default var created will be available in only one workspace i.e if created in /bin dir 
 for ex to be available in /bin2 --> export var then from /bin2 var can be accessible. 
+************** USING PATH VARIABLE *******************************
 PATH variable refers to the user dirs where the user has permission to execute the scripts stored on those dirs. 
 In order to set some dir to PATH --> PATH=dev/bin2:$PATH -> if the dir has to be suffixed.
 
+********************** JOB CONTROL ***********************
 vi sample.txt -> INSERT MODE -> enter something -> CTRL+Z to come out of the text file 
 if you type "jobs" and return it will show list of tasks which were stopped but not "closed"
 type fg -> to resume the currently stopped job. fg 2 to resume 2nd job from the list. 
 And, watch date  -> will display time in dynamic mode. To run in bg -> watch date& 
 when jobs is executed -> also shows date command. 
 
+**************** KILL A JOB ****************
 To kill a job we need the process id -> to fetch process id type "ps" --> it will list all the jobs stopped/running in background with process id 
 kill -l ==> list the different options can be used with kill command 
 commanly used, kill -9 <PSID> 
 
-REDIRECTING & PIPING
+**************************** REDIRECTING & PIPING *********************
+REDIRECTING refers to redirect following to some other place. 
+1. STDIN
+2. STDOUT
+3. STDERR 
+by default when we execute "find /text" it will return OPTION-2 which is STDOUT; INCASE we need to get the error stored on to a file 
+find /sample 3> ERRORS.txt
+when u do vi ERRORS.txt --> it will display the errors from above command 
+cat < file.txt > file1copy.txt --> redirecting the content of file.txt to new file. 
+cat file.txt | grep "ARUN" | > result.txt --> redirecting & piping the search results to new file. 
+
