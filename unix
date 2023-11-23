@@ -25,3 +25,23 @@ df -h -- returns disk space -h returns in human readable form
 du -h -- returns disk utlization in human readable form 
 chage -l <username> - know when user password will expire. 
 
+**************** WORKING WITH SHELL *******************
+# VARIABLES 
+var = "AURN PRAANTH"
+echo $var
+by default var created will be available in only one workspace i.e if created in /bin dir 
+for ex to be available in /bin2 --> export var then from /bin2 var can be accessible. 
+PATH variable refers to the user dirs where the user has permission to execute the scripts stored on those dirs. 
+In order to set some dir to PATH --> PATH=dev/bin2:$PATH -> if the dir has to be suffixed.
+
+vi sample.txt -> INSERT MODE -> enter something -> CTRL+Z to come out of the text file 
+if you type "jobs" and return it will show list of tasks which were stopped but not "closed"
+type fg -> to resume the currently stopped job. fg 2 to resume 2nd job from the list. 
+And, watch date  -> will display time in dynamic mode. To run in bg -> watch date& 
+when jobs is executed -> also shows date command. 
+
+To kill a job we need the process id -> to fetch process id type "ps" --> it will list all the jobs stopped/running in background with process id 
+kill -l ==> list the different options can be used with kill command 
+commanly used, kill -9 <PSID> 
+
+REDIRECTING & PIPING
