@@ -23,3 +23,5 @@ more, less file1 - to print content; less is the most sophisticated way doesn't 
 date -u - returns date time -u denotes timestammp
 df -h -- returns disk space -h returns in human readable form
 du -h -- returns disk utlization in human readable form 
+chage -l <username> - know when user password will expire. 
+
