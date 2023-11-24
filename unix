@@ -58,4 +58,25 @@ find /sample 3> ERRORS.txt
 when u do vi ERRORS.txt --> it will display the errors from above command 
 cat < file.txt > file1copy.txt --> redirecting the content of file.txt to new file. 
 cat file.txt | grep "ARUN" | > result.txt --> redirecting & piping the search results to new file. 
+********* HEAD & TAIL ******************
+head -n 10 file.txt  --> returns the first 10 lines of the file content 
+tail -n+1 file.txt --> skips 1st line and returns last 10 lines of the file content.
+********** COUNT WORDS, LINES, CHARACTERS COUNT ************************
+wc - returns the no of lines, words count, characters count 
+head -n 10 file.txt | wc 
+
+******************** SEARCHING THROUGH A FILE *****************
+grep "PP" fruits.txt 
+grep -i "pp" fruits.txt --> ignores case 
+grep "\d{2}/\d{1,2}/\d{4} file.txt --> returns data having date with 2 digits 
+grep -v "\d{2}/\d{1,2}/\d{4} file.txt --> invert match 
+grep "(*?\d{2}/\d{1,2}/\d{4}){2}" file.txt --> finds 2 dates matching above criteria and returns those record. 
+for more options on grep do man grep 
+
+************************ comparing files **************************
+diff file1 file2
+to update diff from file2 to file1
+diff file1 file2 | patch > patch.txt
+
+
 
