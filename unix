@@ -87,6 +87,10 @@ bunzip2 file.csv
 zip -r dir_name -> -r recursive all files in the dir 
 
 ******** SEARCHING FILES *******************
+find . -name "something" 
+find . -not -name "something"
+find . -E -regex 'file[[:digit:][2]]
+
 
 
 
