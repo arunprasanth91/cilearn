@@ -78,5 +78,16 @@ diff file1 file2
 to update diff from file2 to file1
 diff file1 file2 | patch > patch.txt
 
+********** COMPRESSING FILES **********
+time gzip file.csv -> using with time command returns how much time it took to compress
+time gunzip file.csv ->  to unzip 
+time gzip -k file.csv ->  to keep the original file as well. 
+time bzip2  file.csv -> another compression 
+bunzip2 file.csv
+zip -r dir_name -> -r recursive all files in the dir 
+
+******** SEARCHING FILES *******************
+
+
 
 
