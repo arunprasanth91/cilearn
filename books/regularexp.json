@@ -1,0 +1,281 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "import re"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "pattern = \"arun\"\n",
+    "text = \"My name is ARUN PRASANTH arun\""
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "['arun']"
+      ]
+     },
+     "execution_count": 9,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "#case sensitive\n",
+    "re.findall(pattern=pattern,string=text)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "# returns position \n",
+    "pos = re.search(pattern=pattern,string=text)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 18,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "25 29 (25, 29)\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(pos.start(), pos.end(), pos.span())"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 19,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "tuple"
+      ]
+     },
+     "execution_count": 19,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "type(pos.span())"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 20,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "['My ', ' is ARUN PRASANTH arun']"
+      ]
+     },
+     "execution_count": 20,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "re.split(pattern=\"name\",string=text)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 28,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'my name is ARUN and also ARUN'"
+      ]
+     },
+     "execution_count": 28,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "# replaces matching string with replacement string \n",
+    "re.sub(pattern=\"arun\",repl=\"ARUN\",string=\"my name is arun and also arun\",count=0)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 70,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "['a']\n",
+      "<_sre.SRE_Match object; span=(3, 4), match='e'>\n",
+      "<_sre.SRE_Match object; span=(11, 15), match='ARUN'>\n",
+      "<_sre.SRE_Match object; span=(3, 7), match='name'>\n",
+      "None\n",
+      "<_sre.SRE_Match object; span=(11, 20), match='ARRRRRRUN'>\n",
+      "<_sre.SRE_Match object; span=(11, 20), match='ARRRRRRUN'>\n",
+      "['Heo']\n",
+      "[]\n",
+      "<_sre.SRE_Match object; span=(0, 6), match='From :'>\n",
+      "<_sre.SRE_Match object; span=(6, 11), match='World'>\n",
+      "<_sre.SRE_Match object; span=(0, 1), match='a'>\n",
+      "<_sre.SRE_Match object; span=(3, 4), match='n'>\n",
+      "<_sre.SRE_Match object; span=(2, 3), match=' '>\n",
+      "['Mississippiii']\n",
+      "['Mississippiii', 'Mississippii']\n"
+     ]
+    }
+   ],
+   "source": [
+    "\"\"\"\n",
+    "^ caret symbol\n",
+    "$ dollar symbol\n",
+    ". dot symbol\n",
+    "? symbol\n",
+    "+ symbol\n",
+    "* symbol \n",
+    "+? symbol\n",
+    "| (Alternation)\n",
+    "[] Matches a single character in the listed set\n",
+    "{m}\n",
+    "\"\"\" \n",
+    "print(re.findall(pattern=\"^a\",string=\"arun is my name\"))\n",
+    "print(re.search(pattern=\"e$\",string=\"name\"))\n",
+    "print(re.search(pattern=\"A..N\",string=\"My name is ARUN PRASANTH\"))\n",
+    "print(re.search(pattern=\"np?ame\",string=\"My name is ARUN PRASANTH\")) # matches zero or one repetition of the preceding RE\n",
+    "print(re.search(pattern=\"AR?UN\",string=\"My name is ARRRRRRUN PRASANTH\")) \n",
+    "print(re.search(pattern=\"AR+UN\",string=\"My name is ARRRRRRUN PRASANTH\"))\n",
+    "print(re.search(pattern=\"AR*UN\",string=\"My name is ARRRRRRUN PRASANTH\"))# matches one or more repetition\n",
+    "print(re.findall(pattern=\"Hel*o\", string=\"Heo World!\")) # non greedy\n",
+    "print(re.findall(pattern=\"Hel+o\", string=\"Heo World!\"))\n",
+    "print(re.search(pattern=\"^F.+?:\",string=\"From : using the : character\"))\n",
+    "print(re.search(pattern=\"Bye|World\",string=\"Hello World!\"))\n",
+    "print(re.search(pattern=\"[apru]\",string=\"arun my name\"))\n",
+    "print(re.search(pattern=\"[^apru]\",string=\"arun my name\")) # not in the listed list\n",
+    "print(re.search(pattern=\"[^a-zA-Z0-9]\",string=\"My name is ARUN! I live @ stockholm\"))\n",
+    "print(re.findall(pattern='Mississippi{3}', string=\"Mississippi Mississippiii Mississippii\"))\n",
+    "print(re.findall(pattern='Mississippi{2,3}', string=\"Mississippi Mississippiii Mississippii\"))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 71,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "'\\n\\\\s : Matches any whitespace character (i.e. equivalent to the class [ \\t\\n\\r\\x0c\\x0b])\\n\\\\S : Matches any non-whitespace character (i.e. equivalent to the class [^ \\t\\n\\r\\x0c\\x0b])\\n\\\\d : Matches any decimal digit (i.e. equivalent to the class [0-9])\\n\\\\D : Matches any non-digit character (i.e. equivalent to the class      [^0-9])\\n\\\\w : Matches any alphanumeric character (i.e. equivalent to the class [a-zA-Z0-9_])\\n\\\\W : Matches any non-alphanumeric character (i.e. equivalent to the class [^a-zA-Z0-9_])\\n'"
+      ]
+     },
+     "execution_count": 71,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "\"\"\"\n",
+    "\\s : Matches any whitespace character (i.e. equivalent to the class [ \\t\\n\\r\\f\\v])\n",
+    "\\S : Matches any non-whitespace character (i.e. equivalent to the class [^ \\t\\n\\r\\f\\v])\n",
+    "\\d : Matches any decimal digit (i.e. equivalent to the class [0-9])\n",
+    "\\D : Matches any non-digit character (i.e. equivalent to the class      [^0-9])\n",
+    "\\w : Matches any alphanumeric character (i.e. equivalent to the class [a-zA-Z0-9_])\n",
+    "\\W : Matches any non-alphanumeric character (i.e. equivalent to the class [^a-zA-Z0-9_])\n",
+    "\"\"\""
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 186,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "['abc@gmail.com']\n",
+      "['My', 'email', 'id', 'is', 'abc', 'gmail', 'com', 'which', 'i', 'have', 'created', 'on', '5th', 'Jan']\n",
+      "['05/01/2021']\n",
+      "['05/01/2021']\n",
+      "['abc123@gmail.com']\n",
+      "['abc123@gmail.com']\n",
+      "<_sre.SRE_Match object; span=(0, 26), match='https://sohanlalgupta.tech'>\n"
+     ]
+    }
+   ],
+   "source": [
+    "print(re.findall(pattern=\"\\S+@\\S+\",string=\"My email id is abc@gmail.com which i have created on 5th Jan.\"))\n",
+    "print(re.findall(pattern=\"\\w+\",string=\"My email id is abc@gmail.com which i have created on 5th Jan.\"))\n",
+    "print(re.findall(pattern=\"(\\d+\\/\\d+\\/\\d+)\",string=\"My email id is abc@gmail.com which i have created on 05/01/2021\"))\n",
+    "print(re.findall(pattern=\"[0-9]{1,2}\\/[0-9]{1,2}\\/[0-9]{4}\",string=\"My email id is abc@gmail.com which i have created on 05/01/2021\"))\n",
+    "print(re.findall(pattern=\"(^[a-z0-9]+[\\._]?[a-z0-9]+[@]\\w+[.]\\w{2,3}$)\",string=\"abc123@gmail.com\"))\n",
+    "print(re.findall(pattern=\"(^\\w+[\\._]?\\w+[@]\\w+[.]\\w{2,3}$)\",string=\"abc123@gmail.com\"))\n",
+    "print(re.search(pattern=\"(((http|https)://)(www.)?[a-zA-Z0-9@:%._\\\\+~#?&//=]{2,256})\",string=\"https://sohanlalgupta.tech\"))"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.6.1"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}
