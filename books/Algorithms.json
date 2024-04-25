@@ -1,0 +1,310 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "#Linear search O(n) \n",
+    "\"\"\"\n",
+    "iterates over every element in the list and identifies the element \n",
+    "\"\"\"\n",
+    "random = [3,4,51,0,21,2,90,1,9,5,-1,6]\n",
+    "def linear_search(nos, ele):\n",
+    "    for index, num in enumerate(nos):\n",
+    "        if num == ele:\n",
+    "            print(f\"{ele} is found at index position {index}\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "5 is found at index position 9\n"
+     ]
+    }
+   ],
+   "source": [
+    "linear_search(random, 5)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "#Binary search \n",
+    "\"\"\"\n",
+    "search element is compared against the mid index based on that start and end position is decided and \n",
+    "if the ele is equal to mid index and ele position is returned. for binary search list has to be sorted in ascending order.\n",
+    "\"\"\"\n",
+    "def binary_search(nos,ele):\n",
+    "    low = 0\n",
+    "    high = len(nos)-1\n",
+    "    mid = (low+high)//2\n",
+    "    found = False\n",
+    "    itr = 0\n",
+    "    while not found:\n",
+    "        itr += 1\n",
+    "        if ele < mid:\n",
+    "            high = mid\n",
+    "            mid = (low + high)//2\n",
+    "        elif ele > mid:\n",
+    "            low = mid\n",
+    "            mid = (low + high) //2\n",
+    "        elif mid == ele:\n",
+    "            found = True\n",
+    "            print(f\"{ele} is found in {itr}th iteration\")"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "71 is found in 7th iteration\n"
+     ]
+    }
+   ],
+   "source": [
+    "binary_search(range(100), 71)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "# selection sort \n",
+    "\"\"\"\n",
+    "every element is compared against rest of other elements in the list to identify the smallest element and it is swapped. \n",
+    "\"\"\"\n",
+    "def selection_sort(nos):\n",
+    "    for num in range(len(nos)):\n",
+    "        smallest_index = -1\n",
+    "        for num1 in range (num+1,len(nos)):\n",
+    "            if nos[num] > nos[num1] and smallest_index < 0:\n",
+    "                smallest_index = num1\n",
+    "            elif nos[num] > nos[num1] and nos[num1] < nos[smallest_index]:\n",
+    "                smallest_index = num1\n",
+    "        if smallest_index is not -1:\n",
+    "            nos[num],nos[smallest_index] = nos[smallest_index],nos[num]\n",
+    "    print(nos)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[-1, 0, 1, 2, 3, 4, 5, 6, 9, 21, 51, 90]\n"
+     ]
+    }
+   ],
+   "source": [
+    "selection_sort(random)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 9,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "# Bubble sort \n",
+    "\"\"\"\n",
+    "every element is compared with the next element and if the netx element is greater it is swapped. \n",
+    "\"\"\"\n",
+    "def bubble_sort(nos):\n",
+    "    for num in range(len(nos)):\n",
+    "        for num1 in range(num+1,len(nos)):\n",
+    "            if nos[num] > nos[num1]:\n",
+    "                nos[num],nos[num1] = nos[num1],nos[num]\n",
+    "    print(nos)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 10,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[-1, 0, 1, 2, 3, 4, 5, 6, 9, 21, 51, 90]\n"
+     ]
+    }
+   ],
+   "source": [
+    "bubble_sort(random)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 11,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "# insertion sort \n",
+    "\"\"\"\n",
+    "1st element is considered as sorted array and every next element is compared against the very next element and if its greater \n",
+    "then position is swapped along with comparing against the sorted array. \n",
+    "\"\"\"\n",
+    "def insertion_sort(nos):\n",
+    "    for num in range(len(nos)-1):\n",
+    "        if nos[num] > nos[num+1]:\n",
+    "            nos[num], nos[num+1] = nos[num+1], nos[num]\n",
+    "            current = num\n",
+    "            check_smaller = True\n",
+    "            while check_smaller:\n",
+    "                if nos[current] < nos[current - 1] and current > 0:\n",
+    "                    nos[current], nos[current - 1] = nos[current - 1], nos[current]\n",
+    "                    current -= 1\n",
+    "                else:\n",
+    "                    check_smaller = False\n",
+    "                    if current < 0:\n",
+    "                        current = 0\n",
+    "    print(nos)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 12,
+   "metadata": {},
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "[-1, 0, 1, 2, 3, 4, 5, 6, 9, 21, 51, 90]\n"
+     ]
+    }
+   ],
+   "source": [
+    "insertion_sort(random)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 13,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": [
+    "# merge sort divide and conquer \n",
+    "def merge_sort(arr):\n",
+    "    if len(arr) > 1:\n",
+    "        left_arr = arr[:len(arr)//2]\n",
+    "        right_arr = arr[len(arr)//2:]\n",
+    "        merge_sort(left_arr)\n",
+    "        merge_sort(right_arr)\n",
+    "        i=0 # left arr\n",
+    "        j=0 # right arr\n",
+    "        k=0 # arr index\n",
+    "        while i < len(left_arr) and j < len(right_arr):\n",
+    "            if left_arr[i] < right_arr[j]:\n",
+    "                arr[k] = left_arr[i]\n",
+    "                i += 1\n",
+    "            else:\n",
+    "                arr[k] = right_arr[j]\n",
+    "                j += 1\n",
+    "            k += 1\n",
+    "        while i < len(left_arr):\n",
+    "            arr[k] = left_arr[i]\n",
+    "            k += 1\n",
+    "            i += 1\n",
+    "        while j < len(right_arr):\n",
+    "            arr[k] = right_arr[j]\n",
+    "            j += 1\n",
+    "            k += 1"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 14,
+   "metadata": {},
+   "outputs": [],
+   "source": [
+    "merge_sort(random)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 15,
+   "metadata": {},
+   "outputs": [
+    {
+     "data": {
+      "text/plain": [
+       "[-1, 0, 1, 2, 3, 4, 5, 6, 9, 21, 51, 90]"
+      ]
+     },
+     "execution_count": 15,
+     "metadata": {},
+     "output_type": "execute_result"
+    }
+   ],
+   "source": [
+    "random"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": null,
+   "metadata": {
+    "collapsed": true
+   },
+   "outputs": [],
+   "source": []
+  }
+ ],
+ "metadata": {
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.6.1"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 2
+}
