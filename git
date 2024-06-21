@@ -101,6 +101,9 @@ git revert <COMMIT-HASHCODE> -- new entty will be created in the log that it is 
 GIT FETCH - downloads code from all branch from the remote to local but won't merge with working copy.  GIT FETCH + GIT MERGE = GIT PULL.
 GIT PULL - downloads and merge with the working copy.
 
+To disable sslVerification before Git call.
+git config http.sslVerify=false clone -b <URL>
+
 
 
 
